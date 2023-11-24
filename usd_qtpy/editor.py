@@ -25,6 +25,27 @@ class EditorWindow(QtWidgets.QDialog):
         self.setWindowTitle("USD Editor")
 
         layout = QtWidgets.QVBoxLayout(self)
+
+        ## Testing zone begin
+
+        toolbar = QtWidgets.QMenuBar()
+
+        menu1 = QtWidgets.QMenu()
+        item1_action = menu1.addAction("item1")
+        menu1.addAction("item2")
+
+        callback = lambda : print("wowowowow")
+
+        item1_action.triggered.connect(lambda: callback())
+        callback = lambda : print("wowiezowie")
+
+        test_baritem = toolbar.addAction("menu1")
+        test_baritem.setMenu(menu1)
+
+        layout.setMenuBar(toolbar)
+
+        ## Testing zone end
+
         splitter = QtWidgets.QSplitter(self)
         layout.addWidget(splitter)
 
